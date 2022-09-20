@@ -1,0 +1,321 @@
+@import '_clean';
+
+@font-face {
+    font-family: 'Alethia Next';
+    src: url('../fonts/alethianext-light.eot');
+    src: local('☺'), url('../fonts/alethianext-light.woff') format('woff'), url('../fonts/alethianext-light.ttf') format('truetype'), url('../fonts/alethianext-light.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin font ($ff, $fs, $fw, $fz, $lh, $c) {
+    font-family: $ff;
+    font-style: $fs;
+    font-weight: $fw;
+    font-size: $fz;
+    line-height: $lh;
+    color: $c;
+}
+
+// ---------------------------------------------------------
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: rgba(32, 8, 59, 1);
+    // backdrop-filter: blur(92.3058px);
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+._container {
+    max-width: 1430px;
+    padding: 0 15px 0 15px;
+    margin: 0 auto;
+}
+
+// ---------------------------------------------------------
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding-top: 50px;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+
+    .header__logo {
+        width: 10%;
+        display: flex;
+        align-items: center;
+        z-index: 50;
+
+        p {
+            @include font('Orbitron', 'normal', 700, 20px, 25px, rgba(255, 255, 255, 0.6))
+        }
+
+        p span {
+            @include font('Orbitron', 'normal', 700, 20px, 25px, rgba(255, 255, 255, 1))
+        }
+    }
+
+    .menu__burger {
+        display: none;
+    }
+
+    .header__menu {
+        display: flex;
+        justify-content: space-between;
+        width: 73%;
+
+        .menu {
+            .menu__list {
+                display: flex;
+                gap: 66px;
+
+                a {
+                    @include font('Orbitron', 'normal', 700, 20px, 25px, rgba(255, 255, 255, 0.6))
+                }
+
+                a:hover {
+                    @include font('Orbitron', 'normal', 700, 20px, 25px, rgba(255, 255, 255, 1))
+                }
+            }
+        }
+
+        .menu__icons {
+            display: flex;
+            gap: 50px;
+        }
+    }
+}
+
+// -------------------------HEADER__MEDIA--------------------------------
+@media (max-width:1024px) {
+    .header__container {
+        .header__menu {
+            .menu {
+                .menu__list {
+                    display: flex;
+                    gap: 40px;
+                }
+            }
+
+            .menu__icons {
+                display: flex;
+                gap: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .header {
+        height: 70px;
+        padding-top: 20px;
+    }
+
+    body.lock {
+        overflow: hidden;
+    }
+
+    .header__container {
+        .menu__burger {
+            display: flex;
+            position: relative;
+            width: 30px;
+            height: 20px;
+            z-index: 3;
+
+            span {
+                position: absolute;
+                background-color: #fff;
+                width: 100%;
+                height: 2px;
+                left: 0;
+                top: 9px;
+                transition: all 0.3s ease 0s;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                content: "";
+                background-color: #fff;
+                width: 100%;
+                height: 2px;
+                left: 0;
+            }
+
+            &:before {
+                top: 0;
+            }
+
+            &:after {
+                bottom: 0;
+            }
+
+            &.active span {
+                transform: scale(0);
+            }
+
+            &.active:before {
+                transform: rotate(45deg);
+                width: 100%;
+                top: 9px;
+                transition: all 0.3s ease 0s;
+            }
+
+            &.active::after {
+                transform: rotate(-45deg);
+                width: 100%;
+                bottom: 9px;
+                transition: all 0.3s ease 0s;
+            }
+        }
+
+        .header__menu {
+            align-items: center;
+            flex-direction: column;
+            position: fixed;
+            top: -100vh;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(32, 8, 59, 1);
+            transition: all 0.7s ease 0s;
+            overflow: auto;
+            gap: 40px;
+
+            .menu__list {
+                padding-top: 70px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .menu__icons {
+                flex-direction: column;
+            }
+        }
+
+        .header__menu.active {
+            top: 0;
+            justify-content: flex-start;
+        }
+    }
+}
+
+// -----------------------------MAINBLOCK1-----------------------------------
+.mainblock1 {
+    display: flex;
+
+    .mainblock1__sec1 {
+        padding-top: 200px;
+        width: 60%;
+        flex-direction: column;
+
+        .mainblock1__sec1-text1 {
+            @include font('League Spartan', 'normal', 600, 66px, 137%, #ffffff);
+            margin-bottom: 20px;
+
+            span {
+                background: linear-gradient(89.89deg, #42A6E3 2.33%, #FF56F6 101.4%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+        }
+
+        .mainblock1__sec1-text2 {
+            margin-bottom: 40px;
+            max-width: 657px;
+            @include font('Rajdhani', 'normal', 400, 26px, 167%, #ffffff);
+        }
+
+        .mainblock1__sec1-buttons {
+            margin-bottom: 70px;
+
+            .mainblock1__sec1-button1 {
+                width: 249.83px;
+                height: 64.12px;
+                background: linear-gradient(92.23deg, #FF56F6 21.43%, #B936EE 50.63%, #3BACE2 100%, #406AFF 117.04%);
+                box-shadow: 0px 4.42184px 107.23px rgba(255, 86, 246, 0.51);
+                backdrop-filter: blur(106.124px);
+                clip-path: polygon(20% 0%, 100% 0, 100% 70%, 80% 100%, 0 100%, 0% 30%);
+                border-radius: 2.21092px;
+
+                a {
+                    @include font('Orbitron', 'normal', 700, 20px, 25px, #ffffff);
+                }
+
+                margin-right: 40px;
+            }
+
+            .mainblock1__sec1-button2 {
+                background: none;
+
+                a {
+                    @include font('Orbitron', 'normal', 700, 20px, 25px, #ffffff);
+                    background: linear-gradient(89.89deg, #42A6E3 2.33%, #FF56F6 101.4%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    text-fill-color: transparent;
+                }
+            }
+
+        }
+
+        .mainblock1__sec1-info {
+            display: flex;
+
+            .info__block1 {
+                display: flex;
+
+                img {
+                    margin: 0 40px 0 15px;
+                }
+            }
+
+            .info__block2 {
+                display: flex;
+
+                img {
+                    margin: 0 40px 0 15px;
+                }
+            }
+
+            .info__block3 {
+                flex-direction: column;
+            }
+
+            .info__header {
+                @include font('Aldrich', 'normal', 400, 40px, 53px, #ffffff);
+                letter-spacing: 0.221092px;
+            }
+
+            .info__text {
+                @include font('Alethia Next', 'normal', 400, 17px, 22px, #ffffff);
+                letter-spacing: 0.221092px;
+            }
+        }
+
+
+    }
+
+    .mainblock1__sec2 {
+        padding-top: 200px;
+        width: 35%;
+    }
+
+    .mainblock1__sec3 {
+        width: 100%;
+    }
+}
