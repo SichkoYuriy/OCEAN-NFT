@@ -77,3 +77,47 @@ breakpoints: {
     },
     
 }); 
+
+new Swiper('.image-slider3', {
+    slidesPerView: 3 ,
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+        },
+        375: {
+            slidesPerView: 1.1,
+        },
+        425: {
+            slidesPerView: 1.2,
+        },
+        519: {
+            slidesPerView: 1.1,
+        },
+        576: {
+            slidesPerView: 1.2,
+        },
+        650: {
+            slidesPerView: 1.4,
+        },
+        768: {
+            slidesPerView: 1.6 ,
+        },
+        900: {
+            slidesPerView: 1.9 ,
+        },
+        1024: {
+            slidesPerView: 2.2 ,
+        },
+        1300: {
+            slidesPerView: 2.7 ,
+    },
+        1400: {
+            slidesPerView: 3 ,
+        },
+    },
+});
+
+$('.mainblock5__header-link').click(function(){
+        $('.content , .mainblock5__header-img').toggleClass('active');
+    return false;
+});
