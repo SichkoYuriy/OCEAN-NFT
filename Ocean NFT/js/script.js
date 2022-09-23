@@ -160,4 +160,36 @@ $(document).ready(function () {
         }
     });
 });
+// var btnContainer = document.getElementsByClassName("mainblock3__section1-columns");
+// var btns = btnContainer.getElementsByClassName("mainblock3__button");
+
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//   });
+// };
+
+function changeImage(fileName) {
+    let img = document.querySelector("#block3Image");
+    img.setAttribute("src", fileName);
+};
+
+(function(){
+
+	'use strict';
+  var wrapper = document.querySelector('.mainblock3__section1-columns');
+
+  wrapper.addEventListener('click', function(e) {
+    var button = document.querySelectorAll('button');
+    var target = e.target;
+    if(!target.classList.contains('mainblock3__section1-columns')) {
+    	  [].forEach.call(button, function(elem){ 
+     		 elem.classList.remove('active');
+   		  });
+   		   target.classList.add('active');
+    }
+	})
+})();
 
